@@ -17,10 +17,10 @@ Authors@R: c(
     person("Boost Organization", role = "cph",
            comment = "Author of included Boost library")
     )
-Depends: BioCro (>= 3.0.0)
 Imports:
     stats
 Suggests:
+    BioCro (>= 3.0.0),
     testthat,
     knitr,
     lattice

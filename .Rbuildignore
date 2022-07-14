@@ -25,9 +25,6 @@
 # Only exclude PDFs in the vignettes directory itself, not those in
 # subdirectories.
 
-^vignettes/pdf_vignette_index.Rmd$
-# This vignette is only for pkgdown.
-
 ^.*\.gz$
 # If these files occur only as by-products of building vignettes, this could be
 # made more specific: ^vignettes/.*\.gz
@@ -39,23 +36,13 @@
 # GitHub actions and workflows.
 
 ^src/.*\.o$
-^src/BioCro.so$
+^src/.*\.so$
+^src/.*\.dll$
 # C++ build by-products.
 
 ^\.clang-format$
 ^\.editorconfig$
-^cran-comments\.md
 # Other files related to package development.
-
-^bookdown$
-^developer_documentation$
-^documentation$
-^doxygen$
-^pkgdown
-# Developer documentation directories.
-
-^index.md$
-# File created by documentation/script/run_pkgdown.sh
 
 ^LICENSE\.md$
 # Required by the GNU GPL license but not allowed on CRAN

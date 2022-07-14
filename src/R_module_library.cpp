@@ -15,7 +15,7 @@
 // the other code in this file should require any modifications.
 
 using std::string;
-using library = standardBML::module_library;
+using library = skelBML::module_library;
 
 extern "C" {
 
