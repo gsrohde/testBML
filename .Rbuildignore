@@ -20,6 +20,11 @@
 ^vignettes/.*\.toc$
 # Vignette-build by-products
 
+^src/framework/.clang-format$
+^src/framework/.editorconfig$
+^src/framework/.git$
+# Files from the `framework` submodule
+
 ^vignettes/[^/]*\.pdf$
 ^vignettes/figure$
 # Only exclude PDFs in the vignettes directory itself, not those in
