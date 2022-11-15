@@ -78,9 +78,7 @@ these steps:
   from this one, every attempt will be made to avoid changes in any of these
   files that must be modified.
 - As your module library grows, you may wish to add automated GitHub workflows
-  and additional information such as vignettes or Doxygen documentation. For an
-  example, please see the standard BioCro module library repository. (Not yet
-  available.)
+  and additional information such as vignettes or Doxygen documentation.
 
 ### Making contributions
 Please see the
