@@ -70,6 +70,9 @@ these steps:
 - At this point, it is a good idea to use `R CMD build` and `R CMD check` to
   confirm that your new R package is functioning. If it passes the checks, then
   you can begin populating the library with your new modules.
+- An example demonstrating all of the above steps can be found in the crop
+  growth BioCro module library, which is a fork of this repository:
+  https://github.com/biocro/cgbml/pull/1.
 - Occasionally there will be updates to the skelBML repository. Since these may
   cause merge conflicts with modified files in module libraries that are forked
   from this one, every attempt will be made to avoid changes in any of these
