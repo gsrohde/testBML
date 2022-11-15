@@ -27,7 +27,7 @@ static const R_CallMethodDef callMethods[] = {
 // The name of this function must be `R_init_NAME`, where `NAME` must exactly
 // match the name of the package. So, when creating a new module library, it
 // will be necessary to modify the name of this function. For example, if the
-// new library is to be called `myLib`, `R_init_skelBML` must be renamed to
+// new library is to be called `myLib`, this function must be renamed to
 // `R_init_myLib`.
 void attribute_visible R_init_skelBML(DllInfo* info)
 {

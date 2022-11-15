@@ -42,20 +42,34 @@ these steps:
   library. In the following instructions, we will assume the new module library
   is to be called `myLib`.
 - In the `DESCRIPTION` file, change the name of the package to `myLib` and reset
-  the version number to `1.0.0`.
+  the version number to `1.0.0`. It's also a good idea to update the `Title`,
+  `Description`, and `URL` fields. You may need to add authors and change the
+  package maintainer.
 - In the `NAMESPACE` file, change the name of the dynamic library to `myLib`.
-- Update this file (`README.md`) with information about your new package.
+- Update this file (`README.md`) with information about your new package. Make
+  sure to change the package name in the installation instructions and the
+  license information. It is also a good idea to remove this section ("Creating
+  a new module library") since these instructions are specific to the skeleton
+  module library.
 - Initialize `NEWS.md` with information about version `1.0.0` of `myLib`.
-- There are several other places in the code where `skelBML` or `SKELBML` must
-  be replaced by the name of your library, occasionally in all capital letters.
-  The following files have additional instructions for doing this:
+- There are several other places in the source code where `skelBML` or `SKELBML`
+  must be replaced by the name of your library, occasionally in all capital
+  letters. The following files have additional instructions for doing this:
     - `src/init.cpp`
     - `src/module_library/module_library.h`
     - `src/module_library/module_library.cpp`
     - `src/module_librar/example_module.h`
     - `src/R_module_library.cpp`
+- There are several places in the testing code where `skelBML` must be replaced
+  by the name of your library. The following files have additional instructions
+  for doing this:
     - `tests/testthat/test.Modules.R`
     - `tests/testthat.R`
+    - `tests/module_test_cases/skelBML_example_module.csv` (must be renamed to
+      `tests/module_test_cases/myLib_example_module.csv`)
+- At this point, it is a good idea to use `R CMD build` and `R CMD check` to
+  confirm that your new R package is functioning. If it passes the checks, then
+  you can begin populating the library with your new modules.
 - Occasionally there will be updates to the skelBML repository. Since these may
   cause merge conflicts with modified files in module libraries that are forked
   from this one, every attempt will be made to avoid changes in any of these
