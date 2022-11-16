@@ -1,11 +1,8 @@
-# When creating a new BioCro module library R package, it will be necessary to
-# modify the package name in the following commands. For example, if the new
-# package is to be called `myLib`, the corresponding package should be loaded
-# with `library(myLib)` and the package should be checked with
-# `test_check('myLib')`.
-
+# Load the BioCro framework and the testing package
 library(testthat)
 library(BioCro)
-library(skelBML)
 
-test_check('skelBML')
+# Load this package and test it
+source('PACKAGE_NAME.R') # should define a string called PACKAGE_NAME
+library(PACKAGE_NAME, character.only=TRUE)
+test_check(PACKAGE_NAME)
