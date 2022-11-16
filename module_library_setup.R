@@ -42,7 +42,13 @@ header_file_content <- c(
 )
 
 # Create a character vector representing the contents of PACKAGE_NAME.R
-r_file_content <- paste0("PACKAGE_NAME <- '", package_name, "'")
+r_file_content <- c(
+    paste0("PACKAGE_NAME <- '", package_name, "'"),
+    "",
+    "# If any modules should not be tested against their stored cases,",
+    "# their names can be specified here",
+    "MODULES_TO_SKIP <- c()"
+)
 
 # Create a character vector representing the contents of NAMESPACE
 namespace_content <- paste0("useDynLib(", package_name, ", .registration = TRUE)")
