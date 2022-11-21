@@ -79,7 +79,7 @@ description_content <- c(
     paste("Package:", package_name),
     "Version: 1.0.0",
     "Title: YOUR TITLE HERE",
-    "Description: YOUR DESCRIPTION HERE",
+    "Description: YOUR DESCRIPTION HERE.",
     "Authors@R: c(",
     "    person('Example', 'McAuthor', role = c('cre', 'aut'),",
     "          email = 'example@illinois.edu')",
