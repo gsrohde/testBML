@@ -166,9 +166,17 @@ readme_content <- c(
     paste0("install.packages('", package_name, "', repos=NULL, type='SOURCE')"),
     "```",
     "",
+    "### Source",
+    "This package was derived from the [BioCro skeleton module library](https://github.com/biocro/skelBML).",
+    "See `DESCRIPTION_skeleton` for more information about the version of the",
+    "skeleton library that was used.",
+    "",
     "### License",
     paste0("The `", package_name, "` R package is licensed under version 2.0 or greater of the GNU General Public License.")
 )
+
+# Create a character vector representing the license information
+license_content <- readLines('LICENSE_skeleton.md')
 
 # Create a character vector representing the content of the module test case file
 test_content <- c(
@@ -187,6 +195,7 @@ file_info <- list(
     list(description_content,    "DESCRIPTION"),
     list(news_content,           "NEWS.md"),
     list(readme_content,         "README.md"),
+    list(license_content,        "LICENSE.md"),
     list(test_content,           paste0("tests/module_test_cases/", package_name, '_example_module.csv'))
 )
 

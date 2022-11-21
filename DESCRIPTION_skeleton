@@ -5,28 +5,18 @@ Description: A basic BioCro module library with one module, intended to function
     as a "skeleton" package that can be copied and filled in with more modules
     to create additional libraries. For more information, see the BioCro R
     package and Lochocki et al. (2022) <doi:10.1093/insilicoplants/diac003>.
-Authors@R: c(
-    person("Justin M.", "McGrath", role = c('cre', 'aut'),
-           email = "jmcgrath@illinois.edu",
-           comment = c(ORCID = "0000-0002-7025-3906")),
-    person("Edward B.", "Lochocki", role = 'aut',
-           comment = c(ORCID = "0000-0002-4912-9783")),
-    person("Scott", "Rohde", role = 'aut',
-           comment = c(ORCID = "0000-0001-9030-0936")),
-    person("skelBML authors", role = "cph"),
-    person("Boost Organization", role = "cph",
-           comment = "Author of included Boost library")
-    )
-Imports:
-    stats
-Suggests:
-    BioCro (>= 3.0.0),
-    testthat,
-    knitr,
-    lattice
-VignetteBuilder: knitr
-SystemRequirements: C++11, GNU make
-License: GPL (>= 2)
-LazyData: true
-ByteCompile: TRUE
+Authors: Justin M. McGrath, Edward B. Lochocki, and Scott Rohde
 URL: https://github.com/biocro/skelBML
+
+This package as a whole is distributed under version 2 or greater of the GNU
+General Public License (GPL). See `LICENSE_skeleton.md` for the full text of
+this license.
+
+Any distributors that combine and distribute commercially licensed software with
+this software and do not wish to distribute the source code for the commercially
+licensed software under version 2 or greater of the GNU GPL must enter into a
+commercial license agreement with the authors.
+
+This package uses a portion of the Boost software library, which has its own
+separate license: https://www.boost.org/LICENSE_1_0.txt.  A copy of the license
+is included with this package in the file boost_1_71_0/LICENSE_1_0.txt.

@@ -29,15 +29,26 @@ packge:
 Now you are ready to start adding new modules to the package! Adding new modules
 requires the addition of new module classes in the `src/module_library`
 directory, and modifications to the `#include` directives and table in
-`src/module_library/module_library.cpp`. Please do not modify any of the files
-that are directly in `src`, or in `src/framework`; this may cause merge
-conflicts in the future when updating your forked repository from this one.
+`src/module_library/module_library.cpp`.
 
 You may also want to update `README.md`, `NEWS.md`, and `DESCRIPTION` to include
-information about the module library. Please do not modify the `skelBML`
-versions of these files (`docs/README.md`, `NEWS_skeleton.md`, and
-`DESCRIPTION_skeleton`). This may cause merge conflicts in the future when
-updating your forked repository from this one.
+information about your new module library and its authors. If you wish to use a
+different license for distributing your package, you will need to modify
+`LICENSE.md`, `DESCRIPTION`, and `README.md`.
+
+While working on your module library, please avoid modifying the following
+files; doing so may cause merge conflicts in the future when updating your fork
+from the skeleton module library:
+- Any files directly in the `src` directory.
+- Any files in the `src/framework` directory.
+- Any files describing the skeleton module library: `docs/README.md`,
+  `NEWS_skeleton.md`, and `DESCRIPTION_skeleton`.
+- The startup script `module_library_setup.R`.
+- The main `testthat` script `tests/testthat.R`.
+- The module test case script `tests/testthat/test.Modules.R`.
+
+For an example of a module library R package that was derived from the skeleton
+module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
 
 ### Making contributions
 Please see the
