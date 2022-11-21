@@ -8,7 +8,13 @@ By default, the code here will not compile and does not define a functional R
 package. Instead, the following steps should be taken to initialize a working R
 packge:
 1. Make a fork of this repository.
-2. Download a local copy.
+2. Obtain a local copy. This repository (and your newly-created fork) contains a
+   git submodule, so the "Download ZIP" option from the GutHub website will not
+   work properly. Instead, the easiest way to get a local copy is to install
+   GitHub Desktop and use the "Open with GitHub Desktop" option from the GitHub
+   website. Alternatively, if you are familiar with command-line git, you can
+   clone the repository as usual and then use `git submodule update --init` to
+   get the submodule code.
 3. Open an R session and set the working directory to the directory that
    contains `module_library_setup.R`.
 4. Type `source('module_library_setup.R')` to run the module library setup
@@ -29,7 +35,7 @@ conflicts in the future when updating your forked repository from this one.
 
 You may also want to update `README.md`, `NEWS.md`, and `DESCRIPTION` to include
 information about the module library. Please do not modify the `skelBML`
-versions of these files (`README_skeleton.md`, `NEWS_skeleton.md`, and
+versions of these files (`docs/README.md`, `NEWS_skeleton.md`, and
 `DESCRIPTION_skeleton`). This may cause merge conflicts in the future when
 updating your forked repository from this one.
 
