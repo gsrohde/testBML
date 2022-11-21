@@ -1,6 +1,7 @@
 context("Run test cases for all modules")
 
 source('../PACKAGE_NAME.R')
+source('../MODULES_TO_SKIP.R')
 
 test_that("All modules are functioning correctly", {
     expect_error(

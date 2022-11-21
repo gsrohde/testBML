@@ -42,9 +42,10 @@ header_file_content <- c(
 )
 
 # Create a character vector representing the contents of PACKAGE_NAME.R
-r_file_content <- c(
-    paste0("PACKAGE_NAME <- '", package_name, "'"),
-    "",
+r_file_content <- paste0("PACKAGE_NAME <- '", package_name, "'")
+
+# Create a character vector representing the contents of MODULES_TO_SKIP.R
+skip_file_content <- c(
     "# If any modules should not be tested against their stored cases,",
     "# their names can be specified here",
     "MODULES_TO_SKIP <- c()"
@@ -180,6 +181,7 @@ test_content <- c(
 file_info <- list(
     list(header_file_content,    "src/R_PACKAGE_NAME.h"),
     list(r_file_content,         "tests/PACKAGE_NAME.R"),
+    list(skip_file_content,      "tests/MODULES_TO_SKIP.R"),
     list(module_library_content, "src/module_library/module_library.h"),
     list(namespace_content,      "NAMESPACE"),
     list(description_content,    "DESCRIPTION"),
