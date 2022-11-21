@@ -32,12 +32,12 @@ if (grepl('_', package_name, fixed = TRUE)) {
 
 # Create a character vector representing the contents of R_PACKAGE_NAME.h
 header_file_content <- c(
-    "#ifndef R_PACKAGE_NAME",
-    paste("    #define R_PACKAGE_NAME", package_name),
-    "#endif",
+    paste0("#ifndef R_PACKAGE_NAME_", package_name, "_H"),
+    paste0("#define R_PACKAGE_NAME_", package_name, "_H"),
     "",
-    "#ifndef R_INIT_FUNC",
-    paste0("    #define R_INIT_FUNC R_init_", package_name),
+    paste0("#define R_PACKAGE_NAME ", package_name),
+    paste0("#define R_INIT_FUNC R_init_", package_name),
+    "",
     "#endif"
 )
 
@@ -48,6 +48,27 @@ r_file_content <- c(
     "# If any modules should not be tested against their stored cases,",
     "# their names can be specified here",
     "MODULES_TO_SKIP <- c()"
+)
+
+# Create a character vector representing the contents of module_library.h
+module_library_content <- c(
+    paste0("#ifndef MODULE_LIBRARY_", package_name, "_H"),
+    paste0("#define MODULE_LIBRARY_", package_name, "_H"),
+    "",
+    '#include "../R_PACKAGE_NAME.h"',
+    '#include "../framework/module_creator.h"  // for module_creator and creator_map',
+    "",
+    "namespace R_PACKAGE_NAME",
+    "{",
+    "class module_library",
+    "{",
+    "   public:",
+    "    static creator_map library_entries;",
+    "};",
+    "",
+    "}  // namespace R_PACKAGE_NAME",
+    "",
+    "#endif"
 )
 
 # Create a character vector representing the contents of NAMESPACE
@@ -126,8 +147,8 @@ readme_content <- c(
     "use the 'Open with GitHub Desktop' option from the GitHub website.",
     "Alternatively, if you are familiar with command-line git, you can clone the",
     "repository as usual and then use `git submodule update --init` to get the",
-    "submodule code."
-    ""
+    "submodule code.",
+    "",
     "After obtaining a local copy of the source code, install the package from the",
     "command line or from within R using one of the following sets of commands.",
     paste0("These assume that the source files are in a directory named '", package_name, "'."),
@@ -157,13 +178,14 @@ test_content <- c(
 
 # Create the files
 file_info <- list(
-    list(header_file_content, "src/R_PACKAGE_NAME.h"),
-    list(r_file_content,      "tests/PACKAGE_NAME.R"),
-    list(namespace_content,   "NAMESPACE"),
-    list(description_content, "DESCRIPTION"),
-    list(news_content,        "NEWS.md"),
-    list(readme_content,      "README.md"),
-    list(test_content,        paste0("tests/module_test_cases/", package_name, '_example_module.csv'))
+    list(header_file_content,    "src/R_PACKAGE_NAME.h"),
+    list(r_file_content,         "tests/PACKAGE_NAME.R"),
+    list(module_library_content, "src/module_library/module_library.h"),
+    list(namespace_content,      "NAMESPACE"),
+    list(description_content,    "DESCRIPTION"),
+    list(news_content,           "NEWS.md"),
+    list(readme_content,         "README.md"),
+    list(test_content,           paste0("tests/module_test_cases/", package_name, '_example_module.csv'))
 )
 
 invisible(lapply(file_info, function(x) {writeLines(x[[1]], x[[2]])}))
