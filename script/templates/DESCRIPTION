@@ -1,0 +1,20 @@
+Package: %1$s
+Version: 1.0.0
+Title: YOUR TITLE HERE
+Description: YOUR DESCRIPTION HERE.
+Authors@R: c(
+    person('Example', 'McAuthor', role = c('cre', 'aut'),
+          email = 'example@illinois.edu')
+    )
+Imports:
+    stats
+Suggests:
+    BioCro (>= 3.0.0),
+    testthat,
+    knitr,
+    lattice
+VignetteBuilder: knitr
+SystemRequirements: C++11, GNU make
+License: GPL (>= 2)
+LazyData: true
+ByteCompile: TRUE

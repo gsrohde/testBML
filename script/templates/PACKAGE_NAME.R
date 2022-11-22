@@ -1,0 +1,1 @@
+PACKAGE_NAME <- '%1$s'

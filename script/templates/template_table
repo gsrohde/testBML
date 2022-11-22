@@ -1,0 +1,10 @@
+template_file      destination_path
+DESCRIPTION        DESCRIPTION
+LICENSE.md         LICENSE.md
+module_library.h   src/module_library/module_library.h
+MODULES_TO_SKIP.R  tests/MODULES_TO_SKIP.R
+NAMESPACE          NAMESPACE
+NEWS.md            NEWS.md
+PACKAGE_NAME.R     tests/PACKAGE_NAME.R
+README.md          README.md
+R_PACKAGE_NAME.h   src/R_PACKAGE_NAME.h

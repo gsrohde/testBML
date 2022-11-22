@@ -49,8 +49,9 @@
 ^\.editorconfig$
 ^DESCRIPTION_skeleton$
 ^NEWS_skeleton\.md$
-^module_library_setup\.R$
+^LICENSE_skeleton\.md$
 ^docs$
+^script$
 # Other files related to package development.
 
 ^LICENSE\.md$
