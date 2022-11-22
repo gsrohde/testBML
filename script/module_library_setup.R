@@ -2,7 +2,7 @@
 
 ## function definitions
 
-name_length_limit <- 7
+name_length_limit <- 16
 
 stop_quietly <- function() {
   opt <- options(show.error.messages = FALSE)
