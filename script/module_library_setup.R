@@ -92,8 +92,7 @@ validate_package_name <- function(runtime_params) {
 run_addl_checks <- function(package_name) {
     ## warn about dots and long names
 
-    if (grepl("\\.", package_name) ||
-        nchar(package_name) > name_length_limit)
+    if (nchar(package_name) > name_length_limit)
     {
         cat("\nIt is recommended that package names not exceed ",
             sprintf("%i characters, ", name_length_limit),
