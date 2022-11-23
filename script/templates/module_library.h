@@ -1,10 +1,9 @@
-#ifndef MODULE_LIBRARY_%1$s_H
-#define MODULE_LIBRARY_%1$s_H
+#ifndef %1$s_MODULE_LIBRARY_H
+#define %1$s_MODULE_LIBRARY_H
 
-#include "../R_PACKAGE_NAME.h"
 #include "../framework/module_creator.h"  // for module_creator and creator_map
 
-namespace R_PACKAGE_NAME
+namespace %1$s
 {
 class module_library
 {
@@ -12,6 +11,6 @@ class module_library
     static creator_map library_entries;
 };
 
-}  // namespace R_PACKAGE_NAME
+}  // namespace %1$s
 
 #endif

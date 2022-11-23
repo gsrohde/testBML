@@ -8,10 +8,9 @@
 #include "framework/module_factory.h"
 #include "module_library/module_library.h"
 #include "R_module_library.h"
-#include "R_PACKAGE_NAME.h"
 
 using std::string;
-using library = R_PACKAGE_NAME::module_library;
+using library = %1$s::module_library;
 
 extern "C" {
 

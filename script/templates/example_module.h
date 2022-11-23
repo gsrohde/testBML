@@ -1,11 +1,10 @@
-#ifndef EXAMPLE_MODULE_H
-#define EXAMPLE_MODULE_H
+#ifndef %1$s_EXAMPLE_MODULE_H
+#define %1$s_EXAMPLE_MODULE_H
 
-#include "../R_PACKAGE_NAME.h"
 #include "../framework/module.h"
 #include "../framework/state_map.h"
 
-namespace R_PACKAGE_NAME
+namespace %1$s
 {
 /**
  * @class example_module
@@ -76,5 +75,5 @@ void example_module::do_operation() const
     update(D_op, A - 0.5 * B);
 }
 
-}  // namespace R_PACKAGE_NAME
+}  // namespace %1$s
 #endif

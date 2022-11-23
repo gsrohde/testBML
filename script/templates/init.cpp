@@ -14,7 +14,6 @@
 #include <R_ext/Rdynload.h>    // for R_CallMethodDef, R_registerRoutines, R_forceSymbols
 #include <R_ext/Visibility.h>  // for attribute_visible
 
-#include "R_PACKAGE_NAME.h" // for R_INIT_FUNC
 #include "R_module_library.h"
 
 extern "C" {
@@ -26,9 +25,8 @@ static const R_CallMethodDef callMethods[] = {
 };
 
 // The name of this function must be `R_init_NAME`, where `NAME` must exactly
-// match the name of the R package. Here we ensure this by using a C macro
-// called R_INIT_FUNC.
-void attribute_visible INIT_FUNC(R_PACKAGE_NAME)(DllInfo* info)
+// match the name of the R package.
+void attribute_visible R_init_%1$s(DllInfo* info)
 {
     // We only use .Call in our R code, so we only need to register call methods
     R_registerRoutines(info, NULL, callMethods, NULL, NULL);
