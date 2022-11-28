@@ -19,4 +19,4 @@ commercial license agreement with the authors.
 
 This package uses a portion of the Boost software library, which has its own
 separate license: https://www.boost.org/LICENSE_1_0.txt.  A copy of the license
-is included with this package in the file boost_1_71_0/LICENSE_1_0.txt.
+is included with this package in the file inc/LICENSE_1_0.txt.

@@ -2,7 +2,7 @@
 
 ## function definitions
 
-name_length_limit <- 7
+name_length_limit <- 16
 
 stop_quietly <- function() {
   opt <- options(show.error.messages = FALSE)
@@ -29,7 +29,7 @@ process_args <- function() {
             usage()
         }
         for (arg in args) {
-            if (arg == '-f') {
+            if (arg == '-f' && !'force' %in% names(arg_info)) {
                 arg_info$force <- TRUE
             } else {
                 if ('package_name' %in% names(arg_info)) {
