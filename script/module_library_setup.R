@@ -72,12 +72,12 @@ validate_package_name <- function(runtime_params) {
                     ",
                     x = package_name)
         if (!ok) {
-            cat(package_name,
-                " is not a valid package name.\n",
+            cat("\n", package_name, " is not a valid package name.\n\n",
                 "To be a valid package name, a name must\n",
                 "* Start with a letter\n",
                 "* Contain only ASCII letters and numbers\n\n",
-                "Try again (return to exit): ")
+                "Try again (return to exit): ",
+                sep = "")
             package_name <- smartReadLines()
             if (package_name == '') stop_quietly()
         } else {
@@ -95,8 +95,8 @@ run_addl_checks <- function(package_name) {
     if (nchar(package_name) > name_length_limit)
     {
         cat("\nIt is recommended that package names not exceed ",
-            sprintf("%i characters, ", name_length_limit),
-            "since this will cause a path name length error when running ",
+            sprintf("%i characters,\n", name_length_limit),
+            "since this will cause a path name length error when running\n",
             "`R CMD check` and/or submitting the package to CRAN.\n\n",
             "Enter a new name, or '-f' to ignore this recommendation: ",
             sep = "")
@@ -132,6 +132,23 @@ get_package_name <- function() {
     package_name
 }
 
+safe_writeLines <- function(text, destination) {
+    if (file.exists(destination)) {
+        if (all(readLines(destination) == text)) {
+            message(sprintf("No changes to %s.", destination))
+            return()
+        } else {
+            backup_file_name <- tempfile(tmpdir = dirname(destination),
+                                         pattern = paste0(basename(destination), '-'),
+                                         fileext = ".bak")
+            message(sprintf("moving %s to %s", destination, backup_file_name))
+            file.rename(destination, backup_file_name)
+        }
+    }
+    writeLines(text, destination)
+    message(sprintf("wrote %s", destination))
+}
+
 write_file_from_template <- function(source, destination) {
     file <- file(source)
     template_text <- readLines(file)
@@ -140,8 +157,10 @@ write_file_from_template <- function(source, destination) {
     ## suppressWarnings: not all "templates" have conversion specifiers
     processed_text <- suppressWarnings(sprintf(template_text, package_name))
 
-    writeLines(processed_text, destination)
-    message(sprintf("wrote %s", destination))
+    ## ensure target directory exists
+    dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
+
+    safe_writeLines(processed_text, destination)
 }
 
 process_row <- function(row) {
@@ -159,15 +178,18 @@ file_set <- read.csv(file.path('templates', 'template_table'), sep = '')
 
 invisible(apply(file_set, 1, process_row))
 
+
+## Since the example test data file is named dynamically, it isn't
+## included in file_set and is handled separately:
+
 test_data_directory <- file.path('..', 'tests', 'module_test_cases')
-
-invisible(dir.exists(test_data_directory) ||
-          dir.create(test_data_directory))
-
 test_data_destination <- file.path(test_data_directory,
                                    paste0(package_name,
                                           '_example_module.csv'))
 
-write_file_from_template(source = file.path('templates',
-                                            'module_test_cases.csv'),
-                         test_data_destination)
+## ensure the target directory exists
+dir.create(test_data_directory, recursive = TRUE, showWarnings = FALSE)
+
+invisible(write_file_from_template(
+    source = file.path('templates', 'module_test_cases.csv'),
+    test_data_destination))
