@@ -157,6 +157,9 @@ write_file_from_template <- function(source, destination) {
     ## suppressWarnings: not all "templates" have conversion specifiers
     processed_text <- suppressWarnings(sprintf(template_text, package_name))
 
+    ## ensure target directory exists
+    dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
+
     safe_writeLines(processed_text, destination)
 }
 
@@ -171,23 +174,21 @@ process_row <- function(row) {
 
 package_name <- get_package_name()
 
-## ensure target directories exist
-tests_directory <- file.path('..', 'tests')
-test_data_directory <- file.path('..', 'tests', 'module_test_cases')
-testthat_directory <- file.path('..', 'tests', 'testthat')
-module_library_directory <- file.path('..', 'src', 'module_library')
-for (dir in c(tests_directory, test_data_directory,
-              testthat_directory, module_library_directory)) {
-    invisible(dir.exists(dir) || dir.create(dir))
-}
-
 file_set <- read.csv(file.path('templates', 'template_table'), sep = '')
 
 invisible(apply(file_set, 1, process_row))
 
+
+## Since the example test data file is named dynamically, it isn't
+## included in file_set and is handled separately:
+
+test_data_directory <- file.path('..', 'tests', 'module_test_cases')
 test_data_destination <- file.path(test_data_directory,
                                    paste0(package_name,
                                           '_example_module.csv'))
+
+## ensure the target directory exists
+dir.create(test_data_directory, recursive = TRUE, showWarnings = FALSE)
 
 invisible(write_file_from_template(
     source = file.path('templates', 'module_test_cases.csv'),
