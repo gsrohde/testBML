@@ -47,6 +47,11 @@
 
 ^\.clang-format$
 ^\.editorconfig$
+^DESCRIPTION_skeleton$
+^NEWS_skeleton\.md$
+^LICENSE_skeleton\.md$
+^docs$
+^script$
 # Other files related to package development.
 
 ^LICENSE\.md$

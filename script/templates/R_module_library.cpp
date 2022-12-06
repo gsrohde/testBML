@@ -9,13 +9,8 @@
 #include "module_library/module_library.h"
 #include "R_module_library.h"
 
-// When creating a new module library R package, it will be necessary to modify
-// the namespace in this file to match the one defined in
-// `module_library/module_library.h`. See that file for more details. None of
-// the other code in this file should require any modifications.
-
 using std::string;
-using library = skelBML::module_library;
+using library = %1$s::module_library;
 
 extern "C" {
 

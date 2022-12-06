@@ -1,14 +1,10 @@
-#ifndef EXAMPLE_MODULE_H
-#define EXAMPLE_MODULE_H
+#ifndef %1$s_EXAMPLE_MODULE_H
+#define %1$s_EXAMPLE_MODULE_H
 
 #include "../framework/module.h"
 #include "../framework/state_map.h"
 
-// When creating a new module library R package, it will be necessary to modify
-// the namespace in this file to match the one defined in `module_library.h`.
-// See that file for more details.
-
-namespace skelBML
+namespace %1$s
 {
 /**
  * @class example_module
@@ -79,5 +75,5 @@ void example_module::do_operation() const
     update(D_op, A - 0.5 * B);
 }
 
-}  // namespace skelBML
+}  // namespace %1$s
 #endif
