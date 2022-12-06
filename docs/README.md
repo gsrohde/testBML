@@ -4,6 +4,8 @@ This repository contains a **skel**eton **B**ioCro **m**odule **l**ibrary
 single example module. The `skelBML` repository is designed to be used as a base
 for other BioCro module libraries.
 
+### Using this repository to initialize a working module library
+
 By default, the code here will not compile and does not define a functional R
 package. Instead, the following steps should be taken to initialize a working R
 packge:
@@ -15,16 +17,22 @@ packge:
    website. Alternatively, if you are familiar with command-line git, you can
    clone the repository as usual and then use `git submodule update --init` to
    get the submodule code.
-3. Open an R session and set the working directory to the directory that
-   contains `module_library_setup.R`.
-4. Type `source('module_library_setup.R')` to run the module library setup
-   script. You will be prompted for a module library name, which should be 7 or
-   fewer characters long and not contain any underscores; ideally this would be
-   the name of the new forked repository. This script will generate several
-   files that are required to complete the package.
+3. Run the startup script, which can be accomplished using either of two
+   methods:
+   1. Open an R session, set the working directory to `script`, and type
+      `source('module_library_setup.R')`.
+   2. From a terminal running in the `script` directory, type
+      `Rscript module_library_setup.R`.
+
+   In either case, you will be prompted for a module library name, which should
+   be 16 or fewer characters long and not contain any underscores; ideally this
+   would be the name of the new forked repository. This script will generate
+   several files that are required to complete the package.
 5. To confirm that everything worked, try building and checking the new
    package with `R CMD build` and `R CMD check`.
 6. Commit the changed files to your new repository.
+
+### Customizing your new module library
 
 Now you are ready to start adding new modules to the package! Adding new modules
 requires the addition of new module classes in the `src/module_library`
@@ -36,6 +44,9 @@ information about your new module library and its authors. If you wish to use a
 different license for distributing your package, you will need to modify
 `LICENSE.md`, `DESCRIPTION`, and `README.md`.
 
+For an example of a module library R package that was derived from the skeleton
+module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
+
 While working on your module library, please avoid modifying the following
 files; doing so may cause merge conflicts in the future when updating your fork
 from the skeleton module library:
@@ -43,12 +54,39 @@ from the skeleton module library:
 - Any files in the `src/framework` directory.
 - Any files describing the skeleton module library: `docs/README.md`,
   `NEWS_skeleton.md`, and `DESCRIPTION_skeleton`.
-- The startup script `module_library_setup.R`.
-- The main `testthat` script `tests/testthat.R`.
-- The module test case script `tests/testthat/test.Modules.R`.
+- Any files in the `script` directory.
 
-For an example of a module library R package that was derived from the skeleton
-module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
+### Updating your module library
+
+The BioCro development team may make changes to the skeleton module library in
+the future; every effort will be made to limit the frequency of these updates,
+but they will nevertheless occur. When there is an update to this repository,
+you can update your module library by taking the following steps:
+1. Make a new "development" branch for your repository and publish it to GitHub.
+2. On the GitHub interface for your repository, switch to the development branch
+   and click the `Sync fork` button to pull in the latest changes from
+   `skelBML`.
+3. Pull the changes to your local machine.
+4. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
+   library requires you to rerun the startup script; if it does, then take the
+   following steps:
+   1. Rerun the startup script, as described above.
+   2. Any files that would be changed by the script will be backed up; for
+      example, if the script would modify
+      `src/module_library/module_library.cpp`, it will first create a new file
+      called `src/module_library/module_library.cpp.BAK` with the contents of
+      the original version.
+   3. For any backup files, check for important customizations that should be
+      retained in the new version of those files. Delete backups as you see fit.
+5. To confirm that everything worked, try building and checking the package on
+   the development branch with `R CMD build` and `R CMD check`.
+6. If everything is working, commit the changed files to the development branch,
+   and then merge the branch into the main branch of your repository (ideally by
+   first creating a pull request).
+
+Updating your repository on a development branch as described in these steps
+will allow you to test out the changes before committing them to your main
+branch.
 
 ### Making contributions
 Please see the
