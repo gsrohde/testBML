@@ -62,27 +62,38 @@ The BioCro development team may make changes to the skeleton module library in
 the future; every effort will be made to limit the frequency of these updates,
 but they will nevertheless occur. When there is an update to this repository,
 you can update your module library by taking the following steps:
-1. Make a new "development" branch for your repository and publish it to GitHub.
-2. On the GitHub interface for your repository, switch to the development branch
-   and click the `Sync fork` button to pull in the latest changes from
-   `skelBML`.
-3. Pull the changes to your local machine.
-4. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
+1. Make a new "development" branch for your repository (based on the main
+   branch).
+2. The GitHub web interface has a "Sync fork" button, but it cannot be used if
+   there are any conflicts between your repository and `skelBML`. Unfortunately,
+   this will almost always be the case when updating your repository. Instead,
+   you can sync your branch to `skelBML` using command-line git as follows
+   (assuming you have checked out the new development branch on your local
+   machine):
+   ```
+   git fetch upstream
+   git merge upstream/main
+   ```
+   You will probably need to address one or more merge conflicts at this point.
+3. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
    library requires you to rerun the startup script; if it does, then take the
    following steps:
    1. Rerun the startup script, as described above.
    2. Any files that would be changed by the script will be backed up; for
       example, if the script would modify
-      `src/module_library/module_library.cpp`, it will first create a new file
-      called `src/module_library/module_library.cpp.BAK` with the contents of
-      the original version.
-   3. For any backup files, check for important customizations that should be
-      retained in the new version of those files. Delete backups as you see fit.
-5. To confirm that everything worked, try building and checking the package on
+      `src/module_library/module_library.cpp`, it will first store the contents
+      of the original file in a new file called something like
+      `src/module_library\module_library.cpp-36185ed74f94.bak` (where
+      `36185ed74f94` is a randomly generated alphanumeric string).
+   3. For any files with corresponding `.bak` versions, check for important
+      customizations that should be retained in the new version of those files,
+      such as the table of modules, the package title, etc. Delete backups as
+      you see fit.
+4. To confirm that everything worked, try building and checking the package on
    the development branch with `R CMD build` and `R CMD check`.
-6. If everything is working, commit the changed files to the development branch,
-   and then merge the branch into the main branch of your repository (ideally by
-   first creating a pull request).
+5. When everything is working, commit the changed files to the development
+   branch, and then merge the branch into the main branch of your repository
+   (ideally by first creating a pull request).
 
 Updating your repository on a development branch as described in these steps
 will allow you to test out the changes before committing them to your main
