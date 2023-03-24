@@ -170,6 +170,15 @@ process_row <- function(row) {
     write_file_from_template(source, destination)
 }
 
+remove_file <- function(fpath) {
+    failed <- unlink(fpath)
+    if (failed) {
+        message(sprintf("could not delete %s", fpath))
+    } else {
+        message(sprintf("deleted %s", fpath))
+    }
+}
+
 ## function calls
 
 package_name <- get_package_name()
@@ -193,3 +202,6 @@ dir.create(test_data_directory, recursive = TRUE, showWarnings = FALSE)
 invisible(write_file_from_template(
     source = file.path('templates', 'module_test_cases.csv'),
     test_data_destination))
+
+## remove `skelBML_news.md` since it won't be relevant to a derived package
+invisible(remove_file(file.path('..', 'skelBML_news.md')))
