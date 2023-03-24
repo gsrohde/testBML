@@ -134,7 +134,7 @@ get_package_name <- function() {
 
 safe_writeLines <- function(text, destination) {
     if (file.exists(destination)) {
-        if (all(readLines(destination) == text)) {
+        if (identical(readLines(destination), text)) {
             message(sprintf("No changes to %s.", destination))
             return()
         } else {
