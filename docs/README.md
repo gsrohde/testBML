@@ -67,9 +67,12 @@ you can update your module library by taking the following steps:
 2. The GitHub web interface has a "Sync fork" button, but it cannot be used if
    there are any conflicts between your repository and `skelBML`. Unfortunately,
    this will almost always be the case when updating your repository. Instead,
-   you can sync your branch to `skelBML` using command-line git as follows
-   (assuming you have checked out the new development branch on your local
-   machine):
+   you can sync your branch to `skelBML` using git from the command line as
+   follows: First, be sure the new development branch is checked out in your
+   working copy and that you have a remote named `upstream` that points to the
+   `biocro/skelBML` GitHub repository (_this_ repository). (If you are using
+   GitHub Desktop, the `upstream` remote should have been created
+   automatically.) Then, run the commands
    ```
    git fetch upstream
    git merge upstream/main
@@ -83,7 +86,7 @@ you can update your module library by taking the following steps:
       example, if the script would modify
       `src/module_library/module_library.cpp`, it will first store the contents
       of the original file in a new file called something like
-      `src/module_library\module_library.cpp-36185ed74f94.bak` (where
+      `src/module_library/module_library.cpp-36185ed74f94.bak` (where
       `36185ed74f94` is a randomly generated alphanumeric string).
    3. For any files with corresponding `.bak` versions, check for important
       customizations that should be retained in the new version of those files,
@@ -93,7 +96,7 @@ you can update your module library by taking the following steps:
    the development branch with `R CMD build` and `R CMD check`.
 5. When everything is working, commit the changed files to the development
    branch, and then merge the branch into the main branch of your repository
-   (ideally by first creating a pull request).
+   (possibly by first creating a pull request if you are working with a team).
 
 Updating your repository on a development branch as described in these steps
 will allow you to test out the changes before committing them to your main
