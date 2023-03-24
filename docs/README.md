@@ -1,8 +1,9 @@
 ## skelBML
 This repository contains a **skel**eton **B**ioCro **m**odule **l**ibrary
-(`skelBML`), which is an R package representing a BioCro module library with a
-single example module. The `skelBML` repository is designed to be used as a base
-for other BioCro module libraries.
+(`skelBML`), which is a framework for creating an R package. Running the setup
+script on a fork from this repository will create a basic BioCro module library
+R package with a single example module. Then, additional modules can be added.
+See below for detailed instructions explaining how to do this.
 
 ### Using this repository to initialize a working module library
 
@@ -17,7 +18,7 @@ packge:
    website. Alternatively, if you are familiar with command-line git, you can
    clone the repository as usual and then use `git submodule update --init` to
    get the submodule code.
-3. Run the startup script, which can be accomplished using either of two
+3. Run the setup script, which can be accomplished using either of two
    methods:
    1. Open an R session, set the working directory to `script`, and type
       `source('module_library_setup.R')`.
@@ -30,7 +31,7 @@ packge:
    several files that are required to complete the package.
 5. To confirm that everything worked, try building and checking the new
    package with `R CMD build` and `R CMD check`.
-6. Commit the changed files to your new repository.
+6. Commit the new files to your new repository.
 
 ### Customizing your new module library
 
@@ -41,8 +42,10 @@ directory, and modifications to the `#include` directives and table in
 
 You may also want to update `README.md`, `NEWS.md`, and `DESCRIPTION` to include
 information about your new module library and its authors. If you wish to use a
-different license for distributing your package, you will need to modify
-`LICENSE.md`, `DESCRIPTION`, and `README.md`.
+different license for distributing your package, you will need to modify the
+`DESCRIPTION` and `README.md` files, and replace `LICENSE.md` as appropriate.
+(Please keep in mind that any works derived from `skelBML` must be licensed in
+accordance with the terms of its license.)
 
 For an example of a module library R package that was derived from the skeleton
 module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
@@ -79,9 +82,9 @@ you can update your module library by taking the following steps:
    ```
    You will probably need to address one or more merge conflicts at this point.
 3. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
-   library requires you to rerun the startup script; if it does, then take the
+   library requires you to rerun the setup script; if it does, then take the
    following steps:
-   1. Rerun the startup script, as described above.
+   1. Rerun the setup script, running it as described above.
    2. Any files that would be changed by the script will be backed up; for
       example, if the script would modify
       `src/module_library/module_library.cpp`, it will first store the contents
