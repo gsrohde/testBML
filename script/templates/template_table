@@ -3,6 +3,7 @@ DESCRIPTION          DESCRIPTION
 example_module.h     src/module_library/example_module.h
 init.cpp             src/init.cpp
 LICENSE.md           LICENSE.md
+LICENSE.note         LICENSE.note
 module_library.cpp   src/module_library/module_library.cpp
 module_library.h     src/module_library/module_library.h
 NAMESPACE            NAMESPACE
