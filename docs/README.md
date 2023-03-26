@@ -1,22 +1,27 @@
 ## skelBML
 This repository contains a **skel**eton **B**ioCro **m**odule **l**ibrary
-(`skelBML`), which is an R package representing a BioCro module library with a
-single example module. The `skelBML` repository is designed to be used as a base
-for other BioCro module libraries.
+(`skelBML`), which is a framework for creating an R package. Running the setup
+script on a fork from this repository will create a basic BioCro module library
+R package with a single example module. Then, additional modules can be added.
+See below for detailed instructions explaining how to do this.
 
 ### Using this repository to initialize a working module library
 
 By default, the code here will not compile and does not define a functional R
 package. Instead, the following steps should be taken to initialize a working R
 packge:
-1. Make a fork of this repository.
-2. Obtain a local copy. This repository (and your newly-created fork) contains a
-   git submodule, so the "Download ZIP" option from the GutHub website will not
-   work properly. Instead, the easiest way to get a local copy is to install
-   GitHub Desktop and use the "Open with GitHub Desktop" option from the GitHub
-   website. Alternatively, if you are familiar with command-line git, you can
-   clone the repository as usual and then use `git submodule update --init` to
-   get the submodule code.
+1. Make a fork of this repository. The default name supplied by
+   GitHub will be _skelBML_, but you should choose a name
+   corresponding to the name of your new module library (see step 3).
+2. Obtain a local copy, which can be accomplished using either of two methods:
+   1. If you are new to Git, the easiest way to get a local copy is to install
+      GitHub Desktop and use the "Open with GitHub Desktop option in the "Code"
+      dropdown on the GitHub repository page for the fork you created in step 1.
+   2. Alternatively, clone your fork of the repository using Git on the command
+      line in the usual fashion by running `git clone <repository URL>` where
+      `<repository URL>` is the URL for your fork of `skelBML`. This repository
+      contains a Git submodule, so you will need to take the additional step of
+      running `git submodule update --init` to obtain it.
 3. Run the startup script, which can be accomplished using either of two
    methods:
    1. Open an R session, set the working directory to `script`, and type
@@ -24,13 +29,14 @@ packge:
    2. From a terminal running in the `script` directory, type
       `Rscript module_library_setup.R`.
 
-   In either case, you will be prompted for a module library name, which should
-   be 16 or fewer characters long and not contain any underscores; ideally this
-   would be the name of the new forked repository. This script will generate
-   several files that are required to complete the package.
+   In either case, you will be prompted for a module library name,
+   which should be 16 or fewer characters long and not contain any
+   underscores; ideally this would match the name of the newly-forked
+   repository. This script will generate several files that are
+   required to complete the package.
 5. To confirm that everything worked, try building and checking the new
    package with `R CMD build` and `R CMD check`.
-6. Commit the changed files to your new repository.
+6. Commit the new files to your new repository.
 
 ### Customizing your new module library
 
@@ -41,8 +47,10 @@ directory, and modifications to the `#include` directives and table in
 
 You may also want to update `README.md`, `NEWS.md`, and `DESCRIPTION` to include
 information about your new module library and its authors. If you wish to use a
-different license for distributing your package, you will need to modify
-`LICENSE.md`, `DESCRIPTION`, and `README.md`.
+different license for distributing your package, you will need to modify the
+`DESCRIPTION` and `README.md` files, and replace `LICENSE.md` as appropriate.
+(Please keep in mind that any works derived from `skelBML` must be licensed in
+accordance with the terms of its license.)
 
 For an example of a module library R package that was derived from the skeleton
 module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
@@ -53,7 +61,7 @@ from the skeleton module library:
 - Any files directly in the `src` directory.
 - Any files in the `src/framework` directory.
 - Any files describing the skeleton module library: `docs/README.md`,
-  `NEWS_skeleton.md`, and `DESCRIPTION_skeleton`.
+  `skelBML_license.md`, and `skelBML_description`.
 - Any files in the `script` directory.
 
 ### Updating your module library
@@ -62,27 +70,41 @@ The BioCro development team may make changes to the skeleton module library in
 the future; every effort will be made to limit the frequency of these updates,
 but they will nevertheless occur. When there is an update to this repository,
 you can update your module library by taking the following steps:
-1. Make a new "development" branch for your repository and publish it to GitHub.
-2. On the GitHub interface for your repository, switch to the development branch
-   and click the `Sync fork` button to pull in the latest changes from
-   `skelBML`.
-3. Pull the changes to your local machine.
-4. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
-   library requires you to rerun the startup script; if it does, then take the
+1. Make a new "development" branch for your repository (based on the main
+   branch).
+2. The GitHub web interface has a "Sync fork" button, but it cannot be used if
+   there are any conflicts between your repository and `skelBML`. Unfortunately,
+   this will almost always be the case when updating your repository. Instead,
+   you can sync your branch to `skelBML` using git from the command line as
+   follows: First, be sure the new development branch is checked out in your
+   working copy and that you have a remote named `upstream` that points to the
+   `biocro/skelBML` GitHub repository (_this_ repository). (If you are using
+   GitHub Desktop, the `upstream` remote should have been created
+   automatically.) Then, run the commands
+   ```
+   git fetch upstream
+   git merge upstream/main
+   ```
+   You will probably need to address one or more merge conflicts at this point.
+3. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
+   library requires you to rerun the setup script; if it does, then take the
    following steps:
-   1. Rerun the startup script, as described above.
+   1. Rerun the setup script, running it as described above.
    2. Any files that would be changed by the script will be backed up; for
       example, if the script would modify
-      `src/module_library/module_library.cpp`, it will first create a new file
-      called `src/module_library/module_library.cpp.BAK` with the contents of
-      the original version.
-   3. For any backup files, check for important customizations that should be
-      retained in the new version of those files. Delete backups as you see fit.
-5. To confirm that everything worked, try building and checking the package on
+      `src/module_library/module_library.cpp`, it will first store the contents
+      of the original file in a new file called something like
+      `src/module_library/module_library.cpp-36185ed74f94.bak` (where
+      `36185ed74f94` is a randomly generated alphanumeric string).
+   3. For any files with corresponding `.bak` versions, check for important
+      customizations that should be retained in the new version of those files,
+      such as the table of modules, the package title, etc. Delete backups as
+      you see fit.
+4. To confirm that everything worked, try building and checking the package on
    the development branch with `R CMD build` and `R CMD check`.
-6. If everything is working, commit the changed files to the development branch,
-   and then merge the branch into the main branch of your repository (ideally by
-   first creating a pull request).
+5. When everything is working, commit the changed files to the development
+   branch, and then merge the branch into the main branch of your repository
+   (possibly by first creating a pull request if you are working with a team).
 
 Updating your repository on a development branch as described in these steps
 will allow you to test out the changes before committing them to your main

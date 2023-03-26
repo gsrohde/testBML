@@ -1,0 +1,24 @@
+skelBML version 2.0.0 (https://github.com/biocro/skelBML)
+
+Created by Justin M. McGrath, Edward B. Lochocki, and Scott Rohde.
+
+The skeleton BioCro module library (skelBML) is a framework for creating an R
+package. Running the setup script on a fork from this repository will create a
+basic BioCro module library R package with a single example module. Then,
+additional modules can be added. See `docs/README.md` for detailed instructions
+explaining how to do this. For more information about BioCro and BioCro module
+libraries, see the BioCro R package (https://github.com/ebimodeling/biocro) and
+Lochocki et al. (2022) (https://doi.org/10.1093/insilicoplants/diac003).
+
+This package as a whole is distributed under version 2 or greater of the GNU
+General Public License (GPL). See `skelBML_license.md` for the full text of
+this license.
+
+Any distributors that combine and distribute commercially licensed software with
+this software and do not wish to distribute the source code for the commercially
+licensed software under version 2 or greater of the GNU GPL must enter into a
+commercial license agreement with the authors.
+
+This package uses a portion of the Boost software library, which has its own
+separate license (https://www.boost.org/LICENSE_1_0.txt).  A copy of the license
+is included with this package in the file `inc/LICENSE_1_0.txt`.
