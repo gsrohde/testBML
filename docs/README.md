@@ -10,20 +10,18 @@ See below for detailed instructions explaining how to do this.
 By default, the code here will not compile and does not define a functional R
 package. Instead, the following steps should be taken to initialize a working R
 packge:
-1. Make a fork of this repository.  The default name supplied by
+1. Make a fork of this repository. The default name supplied by
    GitHub will be _skelBML_, but you should choose a name
    corresponding to the name of your new module library (see step 3).
-2. Obtain a local copy. The easiest way to get a local copy is to
-   install GitHub Desktop and use the "Open with GitHub Desktop"
-   option in the "Code" dropdown on the GitHub repository page for the
-   fork you created in step 1.
-
-   Alternatively, clone your fork of the repository using Git on the
-   command line in the usual fashion by running `git clone <repository
-   URL>` where `<repository URL>` is the URL for your fork of skelBML.
-   This repository contains a Git submodule, so you will need to take
-   the additional step of running `git submodule update --init` to
-   obtain it.
+2. Obtain a local copy, which can be accomplished using either of two methods:
+   1. If you are new to Git, the easiest way to get a local copy is to install
+      GitHub Desktop and use the "Open with GitHub Desktop option in the "Code"
+      dropdown on the GitHub repository page for the fork you created in step 1.
+   2. Alternatively, clone your fork of the repository using Git on the command
+      line in the usual fashion by running `git clone <repository URL>` where
+      `<repository URL>` is the URL for your fork of `skelBML`. This repository
+      contains a Git submodule, so you will need to take the additional step of
+      running `git submodule update --init` to obtain it.
 3. Run the startup script, which can be accomplished using either of two
    methods:
    1. Open an R session, set the working directory to `script`, and type
@@ -63,7 +61,7 @@ from the skeleton module library:
 - Any files directly in the `src` directory.
 - Any files in the `src/framework` directory.
 - Any files describing the skeleton module library: `docs/README.md`,
-  `NEWS_skeleton.md`, and `DESCRIPTION_skeleton`.
+  `skelBML_license.md`, and `skelBML_description`.
 - Any files in the `script` directory.
 
 ### Updating your module library
