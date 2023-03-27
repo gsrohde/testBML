@@ -22,7 +22,7 @@ packge:
       `<repository URL>` is the URL for your fork of `skelBML`. This repository
       contains a Git submodule, so you will need to take the additional step of
       running `git submodule update --init` to obtain it.
-3. Run the startup script, which can be accomplished using either of two
+3. Run the setup script, which can be accomplished using either of two
    methods:
    1. Open an R session, set the working directory to `script`, and type
       `source('module_library_setup.R')`.
