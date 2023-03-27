@@ -52,8 +52,22 @@ different license for distributing your package, you will need to modify the
 (Please keep in mind that any works derived from `skelBML` must be licensed in
 accordance with the terms of its license.)
 
-For an example of a module library R package that was derived from the skeleton
-module library, please see the [crop growth BioCro module library](https://github.com/biocro/cgbml).
+Another optional step is to implement one or more GitHub workflows/actions/pages
+using the following functions from the `usethis` R package:
+- If you have written any documentation for your package, such as a `.Rd` file
+  that describes a data set or a long-form vignette, it might be helpful to use
+  `pkgdown` to build an automatically-updated website for your package. This
+  will make your documentation more accessible to current or potential users.
+  For an example, see the
+  [BioCro pkgdown website](https://ebimodeling.github.io/biocro-documentation/docs/index.html).
+  A `pkgdown` website workflow can be initialized by calling
+  `usethis::use_pkgdown_github_pages()` from an R session running in the main
+  directory of your package repository.
+- If you want to make sure that your package tests pass on multiple operating
+  systems, it might be helpful to automatically run `R CMD check` on development
+  branches before merging them into your main branch. Such a workflow can be
+  initialized by calling `usethis::use_github_action_check_standard()` from an
+  R session running in the main directory of your package repository.
 
 While working on your module library, please avoid modifying the following
 files; doing so may cause merge conflicts in the future when updating your fork
