@@ -86,14 +86,14 @@ but they will nevertheless occur. When there is an update to this repository,
 you can update your module library by taking the following steps:
 1. Make a new "development" branch for your repository (based on the main
    branch).
-2. The GitHub web interface has a "Sync fork" button, but it cannot be used if
-   there are any conflicts between your repository and `skelBML`. Unfortunately,
-   this will almost always be the case when updating your repository. Instead,
-   you can sync your branch to `skelBML` using git from the command line as
-   follows: First, be sure the new development branch is checked out in your
-   working copy and that you have a remote named `upstream` that points to the
-   `biocro/skelBML` GitHub repository (_this_ repository). (If you are using
-   GitHub Desktop, the `upstream` remote should have been created
+2. Update the new branch from `skelBML`. The GitHub web interface has a "Sync
+   fork" button that makes this easy to do, but it cannot be used if there are
+   any conflicts between your repository and `skelBML`. If there are merge
+   conflicts, you can instead sync your branch to `skelBML` using git from the
+   command line as follows: First, be sure the new development branch is checked
+   out in your working copy and that you have a remote named `upstream` that
+   points to the `biocro/skelBML` GitHub repository (_this_ repository). (If you
+   are using GitHub Desktop, the `upstream` remote should have been created
    automatically.) Then, run the commands
    ```
    git fetch upstream
