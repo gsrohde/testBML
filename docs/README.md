@@ -1,5 +1,5 @@
 ## skelBML
-This repository contains a **skel**eton **B**ioCro **m**odule **l**ibrary
+This repository contains the **skel**eton **B**ioCro **m**odule **l**ibrary
 (`skelBML`), which is a framework for creating an R package. Running the setup
 script on a fork from this repository will create a basic BioCro module library
 R package with a single example module. Then, additional modules can be added.

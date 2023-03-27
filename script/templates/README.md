@@ -12,13 +12,16 @@ PUT AN OVERVIEW OF THE MODULE LIBRARY HERE
 - On MacOS, Xcode.
 
 #### Installation steps
-First obtain a local copy of this repository. It contains a git submodule, so
-the "Download ZIP" option from the GutHub website will not work properly.
-Instead, the easiest way to get a local copy is to install GitHub Desktop and
-use the "Open with GitHub Desktop" option from the GitHub website.
-Alternatively, if you are familiar with command-line git, you can clone the
-repository as usual and then use `git submodule update --init` to get the
-submodule code.
+First, obtain a local copy of this repository, which can be accomplished using
+either of two methods:
+1. If you are new to Git, the easiest way to get a local copy is to install
+   GitHub Desktop and use the "Open with GitHub Desktop option in the "Code"
+   dropdown on the GitHub repository page.
+2. Alternatively, clone this repository using Git on the command line in the
+   usual fashion by running `git clone <repository URL>` where
+   `<repository URL>` is the URL for this repository. This repository contains a
+   Git submodule, so you will need to take the additional step of running
+   `git submodule update --init` to obtain it.
 
 After obtaining a local copy of the source code, install the package from the
 command line or from within R using one of the following sets of commands. These
@@ -39,7 +42,7 @@ install.packages('%1$s', repos=NULL, type='SOURCE')
 ### Source
 This package was derived from the
 [BioCro skeleton module library](https://github.com/biocro/skelBML). See
-`DESCRIPTION_skeleton` for more information about the version of the skeleton
+`skelBML_description` for more information about the version of the skeleton
 library that was used.
 
 ### License
