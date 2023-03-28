@@ -20,7 +20,7 @@ for the next release.
 
 - This version adds a startup script that can be used to initialize a new BioCro
   module library.
-- Any module libraries that were forked from earlier versions of `skelBML` will
+- Any module libraries that were based on earlier versions of `skelBML` will
   need to run `script/module_library_setup.R` when updating to version 2.0.0.
 
 # skelBML VERSION 1.0.0

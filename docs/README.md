@@ -1,25 +1,32 @@
 ## skelBML
 This repository contains the **skel**eton **B**ioCro **m**odule **l**ibrary
 (`skelBML`), which is a framework for creating an R package. Running the setup
-script on a fork from this repository will create a basic BioCro module library
-R package with a single example module. Then, additional modules can be added.
-See below for detailed instructions explaining how to do this.
+script on a copy of this repository will create a basic BioCro module library R
+package with a single example module. Then, additional modules can be added. See
+below for detailed instructions explaining how to do this.
 
 ### Using this repository to initialize a working module library
 
 By default, the code here will not compile and does not define a functional R
 package. Instead, the following steps should be taken to initialize a working R
-packge:
-1. Make a fork of this repository. The default name supplied by
-   GitHub will be _skelBML_, but you should choose a name
-   corresponding to the name of your new module library (see step 3).
-2. Obtain a local copy, which can be accomplished using either of two methods:
+package:
+1. Duplicate this repository, making sure to choose a name for the new copy
+   corresponding to the name of your new module library (see Step 3). The
+   easiest way to duplicate a repository is to use the
+   [GitHub importer tool](https://github.com/new/import). In this case, just
+   type the URL for this respository (`https://github.com/biocro/skelBML`) as
+   the "old repository clone URL" and then specify the new name and visibility
+   settings. Repositories can also be duplicated using Git from the command
+   line, as described in the official GitHub instructions for
+   [duplicating a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository).
+2. Obtain a local copy of your new repository, which can be accomplished using
+   either of two methods:
    1. If you are new to Git, the easiest way to get a local copy is to install
-      GitHub Desktop and use the "Open with GitHub Desktop option in the "Code"
-      dropdown on the GitHub repository page for the fork you created in step 1.
-   2. Alternatively, clone your fork of the repository using Git on the command
+      GitHub Desktop and use the "Open with GitHub Desktop" option in the "Code"
+      dropdown on the GitHub page for the repository you created in step 1.
+   2. Alternatively, clone your repository using Git on the command
       line in the usual fashion by running `git clone <repository URL>` where
-      `<repository URL>` is the URL for your fork of `skelBML`. This repository
+      `<repository URL>` is the URL for your repository. The repository
       contains a Git submodule, so you will need to take the additional step of
       running `git submodule update --init` to obtain it.
 3. Run the setup script, which can be accomplished using either of two
@@ -29,13 +36,15 @@ packge:
    2. From a terminal running in the `script` directory, type
       `Rscript module_library_setup.R`.
 
-   In either case, you will be prompted for a module library name,
-   which should be 16 or fewer characters long and not contain any
-   underscores; ideally this would match the name of the newly-forked
-   repository. This script will generate several files that are
-   required to complete the package.
-5. To confirm that everything worked, try building and checking the new
-   package with `R CMD build` and `R CMD check`.
+   In either case, you will be prompted for a module library name, which should
+   be 16 or fewer characters long and not contain any underscores; ideally this
+   would match the name of the newly-created repository. (If you might ever want
+   to submit your package to CRAN, make sure your name is unique on CRAN and
+   BioConductor; one way to help ensure this is to include `BML` in the name.)
+   This script will generate several files that are required to complete the
+   package.
+5. To confirm that everything worked, try building and checking the new package
+   with `R CMD build` and `R CMD check`.
 6. Commit the new files to your new repository.
 
 ### Customizing your new module library
@@ -70,8 +79,8 @@ using the following functions from the `usethis` R package:
   R session running in the main directory of your package repository.
 
 While working on your module library, please avoid modifying the following
-files; doing so may cause merge conflicts in the future when updating your fork
-from the skeleton module library:
+files; doing so may cause difficulties in the future when updating your
+repository from the skeleton module library:
 - Any files directly in the `src` directory.
 - Any files in the `src/framework` directory.
 - Any files describing the skeleton module library: `docs/README.md`,
@@ -85,22 +94,22 @@ the future; every effort will be made to limit the frequency of these updates,
 but they will nevertheless occur. When there is an update to this repository,
 you can update your module library by taking the following steps:
 1. Make a new "development" branch for your repository (based on the main
-   branch).
-2. Update the new branch from `skelBML`. The GitHub web interface has a "Sync
-   fork" button that makes this easy to do, but it cannot be used if there are
-   any conflicts between your repository and `skelBML`. If there are merge
-   conflicts, you can instead sync your branch to `skelBML` using git from the
-   command line as follows: First, be sure the new development branch is checked
-   out in your working copy and that you have a remote named `upstream` that
-   points to the `biocro/skelBML` GitHub repository (_this_ repository). (If you
-   are using GitHub Desktop, the `upstream` remote should have been created
-   automatically.) Then, run the commands
+   branch) and make sure this branch is checked out in your working copy.
+2. Make sure you have a remote named `upstream` that points to the
+   `biocro/skelBML` repository (_this_ repository). This can be done with the
+   following command:
+   ```
+   git remote add upstream https://github.com/biocro/skelBML.git
+   ```
+   If the remote already exists, you will get an error, but there is no harm in
+   running the command.
+3. Update from the remote using the commands
    ```
    git fetch upstream
    git merge upstream/main
    ```
-   You will probably need to address one or more merge conflicts at this point.
-3. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
+   You may need to address one or more merge conflicts at this point.
+4. Check `NEWS_skeleton.md` to see if the new version of the skeleton module
    library requires you to rerun the setup script; if it does, then take the
    following steps:
    1. Rerun the setup script, running it as described above.
@@ -114,9 +123,9 @@ you can update your module library by taking the following steps:
       customizations that should be retained in the new version of those files,
       such as the table of modules, the package title, etc. Delete backups as
       you see fit.
-4. To confirm that everything worked, try building and checking the package on
+5. To confirm that everything worked, try building and checking the package on
    the development branch with `R CMD build` and `R CMD check`.
-5. When everything is working, commit the changed files to the development
+6. When everything is working, commit the changed files to the development
    branch, and then merge the branch into the main branch of your repository
    (possibly by first creating a pull request if you are working with a team).
 
