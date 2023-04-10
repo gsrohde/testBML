@@ -3,7 +3,7 @@ skelBML version 2.0.0 (https://github.com/biocro/skelBML)
 Created by Justin M. McGrath, Edward B. Lochocki, and Scott Rohde.
 
 The skeleton BioCro module library (skelBML) is a framework for creating an R
-package. Running the setup script on a fork from this repository will create a
+package. Running the setup script on a copy of this repository will create a
 basic BioCro module library R package with a single example module. Then,
 additional modules can be added. See `docs/README.md` for detailed instructions
 explaining how to do this. For more information about BioCro and BioCro module
