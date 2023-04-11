@@ -65,12 +65,12 @@ requires the addition of new module classes in the `src/module_library`
 directory, and modifications to the `#include` directives and table in
 `src/module_library/module_library.cpp`.
 
-You may also want to update `README.md`, `NEWS.md`, and `DESCRIPTION` to include
-information about your new module library and its authors. If you wish to use a
-different license for distributing your package, you will need to modify the
-`DESCRIPTION` and `README.md` files, and replace `LICENSE.md` as appropriate.
-(Please keep in mind that any works derived from `skelBML` must be licensed in
-accordance with the terms of its license.)
+You may also want to update `README.md`, `NEWS.md`, `DESCRIPTION`, and
+`man/module_library.Rd` to include information about your new module library and
+its authors. If you wish to use a different license for distributing your
+package, you will need to modify the `DESCRIPTION` and `README.md` files, and
+replace `LICENSE.md` as appropriate. (Please keep in mind that any works derived
+from `skelBML` must be licensed in accordance with the terms of its license.)
 
 Another optional step is to implement one or more GitHub workflows/actions/pages
 using the following functions from the `usethis` R package:
