@@ -1,4 +1,5 @@
 ## skelBML
+
 This repository contains the **skel**eton **B**ioCro **m**odule **l**ibrary
 (`skelBML`), which is a framework for creating an R package. Running the setup
 script on a copy of this repository will create a basic BioCro module library R
@@ -19,8 +20,8 @@ package:
    settings. Repositories can also be duplicated using Git from the command
    line, as described in the official GitHub instructions for
    [duplicating a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository).
-2. Obtain a local copy of your new repository, which can be accomplished using
-   either of two methods:
+2. Obtain a local copy of your new repository, making sure to include the Git
+   submodule code. This can be accomplished using either of two methods:
    1. If you are new to Git, the easiest way to get a local copy is to install
       GitHub Desktop and use the "Open with GitHub Desktop" option in the "Code"
       dropdown on the GitHub page for the repository you created in step 1.
@@ -43,9 +44,19 @@ package:
    BioConductor; one way to help ensure this is to include `BML` in the name.)
    This script will generate several files that are required to complete the
    package.
-5. To confirm that everything worked, try building and checking the new package
-   with `R CMD build` and `R CMD check`.
-6. Commit the new files to your new repository.
+5. To confirm that everything worked, try checking your new package. This can be
+   done from a terminal using the following commands:
+   ```
+   R CMD build path_to_package_directory
+   R CMD check package_tarball
+   ```
+   where `path_to_package_directory` is the path to the package's root directory
+   and `package_tarball` is the tarball created by `R CMD build`, which is
+   usually formatted like `packageName_version.tar.gz` (for example,
+   `BioCro_3.0.0.tar.gz`).
+6. As another confirmation, you can try following the installation instructions
+   example in the `README.md` file of your new repository.
+7. Commit the new files to your new repository.
 
 ### Customizing your new module library
 
@@ -71,7 +82,8 @@ using the following functions from the `usethis` R package:
   [BioCro pkgdown website](https://ebimodeling.github.io/biocro-documentation/docs/index.html).
   A `pkgdown` website workflow can be initialized by calling
   `usethis::use_pkgdown_github_pages()` from an R session running in the main
-  directory of your package repository.
+  directory of your package repository. This would be most useful for a public
+  module library repository.
 - If you want to make sure that your package tests pass on multiple operating
   systems, it might be helpful to automatically run `R CMD check` on development
   branches before merging them into your main branch. Such a workflow can be
@@ -87,12 +99,13 @@ repository from the skeleton module library:
   `skelBML_license.md`, and `skelBML_description`.
 - Any files in the `script` directory.
 
-### Updating your module library
+### Updating your module library from the skeleton
 
-The BioCro development team may make changes to the skeleton module library in
-the future; every effort will be made to limit the frequency of these updates,
-but they will nevertheless occur. When there is an update to this repository,
-you can update your module library by taking the following steps:
+The BioCro development team may make changes to the BioCro framework and/or the
+skeleton module library in the future; every effort will be made to limit the
+frequency of these updates, but they will nevertheless occur. When there is an
+update to this repository, you can update your module library from it by taking
+the following steps:
 1. Make a new "development" branch for your repository (based on the main
    branch) and make sure this branch is checked out in your working copy.
 2. Make sure you have a remote named `upstream` that points to the
@@ -134,6 +147,7 @@ will allow you to test out the changes before committing them to your main
 branch.
 
 ### Making contributions
+
 Please see the
 [contribution guidelines](https://github.com/ebimodeling/biocro/blob/main/developer_documentation/contribution_guidelines.md)
 before submitting changes.
