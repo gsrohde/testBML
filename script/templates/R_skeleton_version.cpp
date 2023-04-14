@@ -7,7 +7,7 @@
 #include "skeleton_version.h"
 
 using std::string;
-using %1$s::version;
+using %1$s::skeleton_version;
 
 extern "C" {
 /**
@@ -16,7 +16,7 @@ extern "C" {
 SEXP R_skeleton_version()
 {
     try {
-        string_vector result = {version};
+        string_vector result = {skeleton_version};
         return r_string_vector_from_vector(result);
     } catch (std::exception const& e) {
         Rf_error((string("Caught exception in R_skeleton_version: ") + e.what()).c_str());
