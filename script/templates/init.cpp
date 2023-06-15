@@ -15,13 +15,15 @@
 #include <R_ext/Visibility.h>  // for attribute_visible
 
 #include "R_module_library.h"
+#include "R_skeleton_version.h"
 
 extern "C" {
 static const R_CallMethodDef callMethods[] = {
-    {"R_get_all_modules",                  (DL_FUNC) &R_get_all_modules,                  0},
-    {"R_get_all_quantities",               (DL_FUNC) &R_get_all_quantities,               0},
-    {"R_module_creators",                  (DL_FUNC) &R_module_creators,                  1},
-    {NULL,                                 NULL,                                          0}
+    {"R_get_all_modules",        (DL_FUNC) &R_get_all_modules,        0},
+    {"R_get_all_quantities",     (DL_FUNC) &R_get_all_quantities,     0},
+    {"R_module_creators",        (DL_FUNC) &R_module_creators,        1},
+    {"R_skeleton_version",       (DL_FUNC) &R_skeleton_version,       0},
+    {NULL,                       NULL,                                0}
 };
 
 // The name of this function must be `R_init_NAME`, where `NAME` must exactly

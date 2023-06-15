@@ -4,6 +4,7 @@ PUT AN OVERVIEW OF THE MODULE LIBRARY HERE
 ### Installation
 
 #### Requirements
+
 - The [R environment](https://cran.r-project.org/).
 - On Windows, a version of [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
   appropriate for your version of R.
@@ -12,6 +13,7 @@ PUT AN OVERVIEW OF THE MODULE LIBRARY HERE
 - On MacOS, Xcode.
 
 #### Installation steps
+
 First, obtain a local copy of this repository, which can be accomplished using
 either of two methods:
 1. If you are new to Git, the easiest way to get a local copy is to install
@@ -39,12 +41,29 @@ setwd('path_to_unzipped_directory')
 install.packages('%1$s', repos=NULL, type='SOURCE')
 ```
 
+### An example
+
+The following code will print a list of all modules available in this library,
+return information about one of them (`example_module`), and then run that
+module:
+```
+library(BioCro)
+library(%1$s)
+get_all_modules('%1$s')
+module_info('%1$s:example_module')
+evaluate_module('%1$s:example_module', list(A = 1, B = 2))
+```
+For more information about using BioCro modules in R, please see the
+[BioCro framework R package](https://github.com/ebimodeling/biocro).
+
 ### Source
+
 This package was derived from the
 [BioCro skeleton module library](https://github.com/biocro/skelBML). See
 `skelBML_description` for more information about the version of the skeleton
 library that was used.
 
 ### License
+
 The `%1$s` R package is licensed under version 2.0 or greater of the
 GNU General Public License.
