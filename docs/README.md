@@ -67,10 +67,14 @@ directory, and modifications to the `#include` directives and table in
 
 You may also want to update `README.md`, `NEWS.md`, `DESCRIPTION`, and
 `man/module_library.Rd` to include information about your new module library and
-its authors. If you wish to use a different license for distributing your
-package, you will need to modify the `DESCRIPTION` and `README.md` files, and
-replace `LICENSE.md` as appropriate. (Please keep in mind that any works derived
-from `skelBML` must be licensed in accordance with the terms of its license.)
+its authors.
+
+By default, R packages derived from `skelBML` are licensed under the MIT
+license. If you wish to use a different license for distributing your package,
+you will need to modify the `DESCRIPTION` and `README.md` files, and replace
+`LICENSE.md` as appropriate. (Please keep in mind that any works derived
+from `skelBML` must be licensed in accordance with the terms of the `skelBML`
+license.)
 
 Another optional step is to implement one or more GitHub workflows/actions/pages
 using the following functions from the `usethis` R package:
@@ -161,5 +165,6 @@ the standard module library.
 
 ### License
 
-The `skelBML` R package is licensed under version 2.0 or greater of the GNU
-General Public License.
+The `skelBML` R package is licensed under the MIT license, but includes or uses
+other software packages that have different licenses. See `skelBML_license.md`
+for more details.

@@ -1,2 +1,14 @@
-The `%1$s` package was derived from `skelBML`. A copy of the `skelBML`
+The `%1$s` R package was derived from `skelBML`. A copy of the `skelBML`
 license is included with this package in the file `skelBML_license.md`.
+
+The `%1$s` R package includes the BioCro C++ framework, which is licensed under
+version 3 or greater of the GNU Lesser General Public License (LGPL). A copy of
+this license is included with this package in the file src/framework/LICENSE.md.
+
+The `%1$s` R package uses a portion of the Rinternals software library, which
+is licensed under version 2.1 or greater of the GNU Lesser General Public
+License.
+
+The `%1$s` R package includes a portion of the Boost software library, which has
+its own separate license: https://www.boost.org/LICENSE_1_0.txt.  A copy of the
+license is included with this package in the file inc/LICENSE_1_0.txt.

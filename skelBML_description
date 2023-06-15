@@ -10,15 +10,17 @@ explaining how to do this. For more information about BioCro and BioCro module
 libraries, see the BioCro R package (https://github.com/ebimodeling/biocro) and
 Lochocki et al. (2022) (https://doi.org/10.1093/insilicoplants/diac003).
 
-This package as a whole is distributed under version 2 or greater of the GNU
-General Public License (GPL). See `skelBML_license.md` for the full text of
-this license.
+The skelBML R package as a whole is distributed under the MIT license. A copy of
+this license is included with this package in the file skelBML_license.md.
 
-Any distributors that combine and distribute commercially licensed software with
-this software and do not wish to distribute the source code for the commercially
-licensed software under version 2 or greater of the GNU GPL must enter into a
-commercial license agreement with the authors.
+The skelBML R package includes the BioCro C++ framework, which is licensed under
+version 3 or greater of the GNU Lesser General Public License (LGPL). A copy of
+this license is included with this package in the file src/framework/LICENSE.md.
 
-This package uses a portion of the Boost software library, which has its own
-separate license (https://www.boost.org/LICENSE_1_0.txt).  A copy of the license
-is included with this package in the file `inc/LICENSE_1_0.txt`.
+The skelBML R package uses a portion of the Rinternals software library, which
+is licensed under version 2.1 or greater of the GNU Lesser General Public
+License.
+
+The skelBML R package includes a portion of the Boost software library, which
+has its own separate license: https://www.boost.org/LICENSE_1_0.txt.  A copy of
+the license is included with this package in the file inc/LICENSE_1_0.txt.

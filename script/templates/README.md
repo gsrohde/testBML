@@ -65,5 +65,6 @@ library that was used.
 
 ### License
 
-The `%1$s` R package is licensed under version 2.0 or greater of the
-GNU General Public License.
+The `%1$s` R package is licensed under the MIT license, but includes or uses
+other software packages that have different licenses. See `LICENSE.note` for
+more details.
