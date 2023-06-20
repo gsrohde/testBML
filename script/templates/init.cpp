@@ -1,3 +1,6 @@
+// WARNING: This file was included in this package by the BioCro skeleton module
+// library and should not be manually edited.
+
 // This code in this file is necessary to register dynamic symbols for use in R.
 // For more information, please see the following sources:
 //

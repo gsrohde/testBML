@@ -1,3 +1,6 @@
+// WARNING: This file was included in this package by the BioCro skeleton module
+// library and should not be manually edited.
+
 #include <string>
 #include <exception>                       // for std::exception
 #include <Rinternals.h>                    // for Rf_error

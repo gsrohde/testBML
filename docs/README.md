@@ -1,3 +1,6 @@
+<!-- WARNING: This file was included in this package by the the skeleton BioCro
+     module library and should not be manually edited -->
+
 ## skelBML
 
 This repository contains the **skel**eton **B**ioCro **m**odule **l**ibrary
@@ -102,6 +105,11 @@ repository from the skeleton module library:
 - Any files describing the skeleton module library: `docs/README.md`,
   `skelBML_license.md`, and `skelBML_description`.
 - Any files in the `script` directory.
+Most files that should not be modified include the following text at the start
+of the file: "WARNING: This file was included in this package by the BioCro
+skeleton module library and should not be manually edited." The major exceptions
+are the files in `src/framework`, which should not be edited but do not include
+this warning.
 
 ### Updating your module library from the skeleton
 

@@ -1,3 +1,6 @@
+<!-- WARNING: This file was included in this package by the the skeleton BioCro
+     module library and should not be manually edited -->
+
 # MIT License
 
 Copyright (c) 2023 skelBML authors

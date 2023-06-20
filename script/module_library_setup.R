@@ -1,5 +1,8 @@
 #!/usr/bin/env Rscript
 
+## WARNING: This file was included in this package by the BioCro skeleton module
+## library and should not be manually edited.
+
 ## function definitions
 
 name_length_limit <- 16

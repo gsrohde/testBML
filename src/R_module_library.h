@@ -1,3 +1,6 @@
+// WARNING: This file was included in this package by the BioCro skeleton module
+// library and should not be manually edited.
+
 #ifndef R_MODULE_LIBRARY_H
 #define R_MODULE_LIBRARY_H
 
