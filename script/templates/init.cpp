@@ -1,3 +1,6 @@
+// WARNING: This file was included in this package by the BioCro skeleton module
+// library and should not be manually edited.
+
 // This code in this file is necessary to register dynamic symbols for use in R.
 // For more information, please see the following sources:
 //
@@ -16,6 +19,7 @@
 
 #include "R_module_library.h"
 #include "R_skeleton_version.h"
+#include "R_framework_version.h"
 
 extern "C" {
 static const R_CallMethodDef callMethods[] = {
@@ -23,6 +27,7 @@ static const R_CallMethodDef callMethods[] = {
     {"R_get_all_quantities",     (DL_FUNC) &R_get_all_quantities,     0},
     {"R_module_creators",        (DL_FUNC) &R_module_creators,        1},
     {"R_skeleton_version",       (DL_FUNC) &R_skeleton_version,       0},
+    {"R_framework_version",      (DL_FUNC) &R_framework_version,      0},
     {NULL,                       NULL,                                0}
 };
 

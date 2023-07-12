@@ -2,6 +2,7 @@ template_file          destination_path
 DESCRIPTION            DESCRIPTION
 example_module.h       src/module_library/example_module.h
 init.cpp               src/init.cpp
+LICENSE                LICENSE
 LICENSE.md             LICENSE.md
 LICENSE.note           LICENSE.note
 module_library.cpp     src/module_library/module_library.cpp

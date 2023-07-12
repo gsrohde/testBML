@@ -54,4 +54,4 @@
 # Other files related to package development.
 
 ^LICENSE\.md$
-# Required by the GNU GPL license but not allowed on CRAN
+# Required to be in the repository but not allowed on CRAN

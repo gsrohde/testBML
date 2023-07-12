@@ -65,5 +65,9 @@ library that was used.
 
 ### License
 
-The `%1$s` R package is licensed under version 2.0 or greater of the
-GNU General Public License.
+The `%1$s` R package is licensed under the MIT license, while the BioCro C++
+framework is licensed under version 3 or greater of the GNU Lesser General
+Public License (LGPL). This scheme allows people to freely develop models for
+any use (public or private) under the MIT license, but any changes to the
+framework that assembles and solves models must make source code changes
+available to all users under the LGPL. See `LICENSE.note` for more details.

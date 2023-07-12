@@ -1,3 +1,6 @@
+<!-- WARNING: This file was included in this package by the the skeleton BioCro
+     module library and should not be manually edited -->
+
 ## skelBML
 
 This repository contains the **skel**eton **B**ioCro **m**odule **l**ibrary
@@ -67,10 +70,14 @@ directory, and modifications to the `#include` directives and table in
 
 You may also want to update `README.md`, `NEWS.md`, `DESCRIPTION`, and
 `man/module_library.Rd` to include information about your new module library and
-its authors. If you wish to use a different license for distributing your
-package, you will need to modify the `DESCRIPTION` and `README.md` files, and
-replace `LICENSE.md` as appropriate. (Please keep in mind that any works derived
-from `skelBML` must be licensed in accordance with the terms of its license.)
+its authors.
+
+By default, R packages derived from `skelBML` are licensed under the MIT
+license. If you wish to use a different license for distributing your package,
+you will need to modify the `DESCRIPTION` and `README.md` files, and replace
+`LICENSE.md` as appropriate. (Please keep in mind that any works derived
+from `skelBML` must be licensed in accordance with the terms of the `skelBML`
+license.)
 
 Another optional step is to implement one or more GitHub workflows/actions/pages
 using the following functions from the `usethis` R package:
@@ -98,6 +105,11 @@ repository from the skeleton module library:
 - Any files describing the skeleton module library: `docs/README.md`,
   `skelBML_license.md`, and `skelBML_description`.
 - Any files in the `script` directory.
+Most files that should not be modified include the following text at the start
+of the file: "WARNING: This file was included in this package by the BioCro
+skeleton module library and should not be manually edited." The major exceptions
+are the files in `src/framework`, which should not be edited but do not include
+this warning.
 
 ### Updating your module library from the skeleton
 
@@ -161,5 +173,9 @@ the standard module library.
 
 ### License
 
-The `skelBML` R package is licensed under version 2.0 or greater of the GNU
-General Public License.
+`skelBML` is licensed under the MIT license, while the BioCro C++ framework is
+licensed under version 3 or greater of the GNU Lesser General Public License
+(LGPL). This scheme allows people to freely develop models for any use (public
+or private) under the MIT license, but any changes to the framework that
+assembles and solves models must make source code changes available to all users
+under the LGPL. See `LICENSE.note` for more details.
