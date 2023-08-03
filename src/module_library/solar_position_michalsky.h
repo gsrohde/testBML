@@ -257,7 +257,7 @@ void solar_position_michalsky::do_operation() const
     update(lmst_op, lmst);
     update(lha_op, lha);
     update(solar_zenith_angle_op, zen);
-    update(solar_azimuth_angle_op, -az);
+    update(solar_azimuth_angle_op, az);
 }
 
 }  // namespace testBML
